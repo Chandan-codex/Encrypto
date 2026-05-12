@@ -1,0 +1,9 @@
+node_modules
+web/node_modules
+api/node_modules
+.git
+*.exe
+*.o
+*.pem
+web/dist
+.env
