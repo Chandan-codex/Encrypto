@@ -1,0 +1,34 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Executables
+*.exe
+*.out
+*.app
+
+# Cryptographic Keys (NEVER COMMIT THESE)
+*.pem
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.local
+
+# Build directories
+api/node_modules/
+web/node_modules/
+web/dist/
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,79 @@
+g++ -std=c++11 -Wall -fpermissive -I"E:/OpenSSL/openssl-3.0/x86/include" -c main.cpp -o main.o
+In file included from main.cpp:6:0:
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c: In function 'int app_fileno(FILE*)':
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:79:22: error: '_fileno' was not declared in this scope
+     return _fileno(fp);
+                      ^
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c: In function 'int app_fsetmod(FILE*, char)':
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:84:31: error: '_fileno' was not declared in this scope
+     return _setmode(_fileno(fp), mod == 'b' ? _O_BINARY : _O_TEXT);
+                               ^
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c: In function 'void** OPENSSL_Applink()':
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:108:47: warning: invalid conversion from 'void* (*)()' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_STDIN] = app_stdin;
+                                               ^~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:109:48: warning: invalid conversion from 'void* (*)()' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_STDOUT] = app_stdout;
+                                                ^~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:110:48: warning: invalid conversion from 'void* (*)()' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_STDERR] = app_stderr;
+                                                ^~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:111:49: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(FILE*, const char*, ...) {aka int (__attribute__((__cdecl__)) *)(_iobuf*, const char*, ...)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FPRINTF] = fprintf;
+                                                 ^~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:112:47: warning: invalid conversion from 'char* (__attribute__((__cdecl__)) *)(char*, int, FILE*) {aka char* (__attribute__((__cdecl__)) *)(char*, int, _iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FGETS] = fgets;
+                                               ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:113:47: warning: invalid conversion from 'size_t (__attribute__((__cdecl__)) *)(void*, size_t, size_t, FILE*) {aka unsigned int (__attribute__((__cdecl__)) *)(void*, unsigned int, unsigned int, _iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FREAD] = fread;
+                                               ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:114:48: warning: invalid conversion from 'size_t (__attribute__((__cdecl__)) *)(const void*, size_t, size_t, FILE*) {aka unsigned int (__attribute__((__cdecl__)) *)(const void*, unsigned int, unsigned int, _iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FWRITE] = fwrite;
+                                                ^~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:115:49: warning: invalid conversion from 'int (*)(FILE*, char) {aka int (*)(_iobuf*, char)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FSETMOD] = app_fsetmod;
+                                                 ^~~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:116:46: warning: invalid conversion from 'int (*)(FILE*) {aka int (*)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FEOF] = app_feof;
+                                              ^~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:117:48: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(FILE*) {aka int (__attribute__((__cdecl__)) *)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FCLOSE] = fclose;
+                                                ^~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:119:47: warning: invalid conversion from 'FILE* (__attribute__((__cdecl__)) *)(const char*, const char*) {aka _iobuf* (__attribute__((__cdecl__)) *)(const char*, const char*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FOPEN] = fopen;
+                                               ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:120:47: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(FILE*, long int, int) {aka int (__attribute__((__cdecl__)) *)(_iobuf*, long int, int)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FSEEK] = fseek;
+                                               ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:121:47: warning: invalid conversion from 'long int (__attribute__((__cdecl__)) *)(FILE*) {aka long int (__attribute__((__cdecl__)) *)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FTELL] = ftell;
+                                               ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:122:48: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(FILE*) {aka int (__attribute__((__cdecl__)) *)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FFLUSH] = fflush;
+                                                ^~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:123:48: warning: invalid conversion from 'int (*)(FILE*) {aka int (*)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FERROR] = app_ferror;
+                                                ^~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:124:50: warning: invalid conversion from 'void (*)(FILE*) {aka void (*)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_CLEARERR] = app_clearerr;
+                                                  ^~~~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:125:48: warning: invalid conversion from 'int (*)(FILE*) {aka int (*)(_iobuf*)}' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_FILENO] = app_fileno;
+                                                ^~~~~~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:127:46: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(const char*, int, ...)' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_OPEN] = _open;
+                                              ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:128:46: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(int, void*, unsigned int)' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_READ] = _read;
+                                              ^~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:129:47: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(int, const void*, unsigned int)' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_WRITE] = _write;
+                                               ^~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:130:47: warning: invalid conversion from 'long int (__attribute__((__cdecl__)) *)(int, long int, int)' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_LSEEK] = _lseek;
+                                               ^~~~~~
+E:/OpenSSL/openssl-3.0/x86/include/openssl/applink.c:131:47: warning: invalid conversion from 'int (__attribute__((__cdecl__)) *)(int)' to 'void*' [-fpermissive]
+         OPENSSL_ApplinkTable[APPLINK_CLOSE] = _close;
+                                               ^~~~~~
+Makefile:15: recipe for target 'main.o' failed
+mingw32-make: *** [main.o] Error 1
