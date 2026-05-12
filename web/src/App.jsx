@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Shield, Lock, Unlock, LogOut, Copy, Check, AlertCircle } from 'lucide-react';
 import './App.css';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000/api';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -45,7 +45,7 @@ function App() {
 
   const handleProcess = async () => {
     if (!input) return;
-    
+
     const err = validateInput(input);
     if (err) {
       setError(err);
@@ -56,7 +56,7 @@ function App() {
     setLoading(true);
     setResult('');
     setError('');
-    
+
     try {
       if (mode === 'encrypt') {
         const res = await axios.post(`${API_BASE}/encrypt`, { message: input });
@@ -93,7 +93,7 @@ function App() {
 
           <button className="btn-google-modern" onClick={handleLogin}>
             <div className="google-icon-box">
-               <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="google" />
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="google" />
             </div>
             Sign in with Google
           </button>
@@ -123,20 +123,20 @@ function App() {
             <LogOut size={18} />
           </button>
         </div>
-        
+
         <h1 className="welcome-text">Welcome, <span className="highlight">{user.displayName.split(' ')[0]}</span></h1>
         <p className="subtitle" style={{ textAlign: 'center', marginTop: '-15px', marginBottom: '25px' }}>
           Secure your thoughts instantly.
         </p>
-        
+
         <div className="mode-selector">
-          <button 
+          <button
             className={`mode-btn ${mode === 'encrypt' ? 'active' : ''}`}
             onClick={() => { setMode('encrypt'); setInput(''); setResult(''); setError(''); }}
           >
             <Lock size={16} /> Encrypt
           </button>
-          <button 
+          <button
             className={`mode-btn ${mode === 'decrypt' ? 'active' : ''}`}
             onClick={() => { setMode('decrypt'); setInput(''); setResult(''); setError(''); }}
           >
@@ -145,8 +145,8 @@ function App() {
         </div>
 
         <div className="input-box">
-          <textarea 
-            placeholder={mode === 'encrypt' ? "Enter message to secure..." : "Enter payload to decrypt..."} 
+          <textarea
+            placeholder={mode === 'encrypt' ? "Enter message to secure..." : "Enter payload to decrypt..."}
             value={input}
             onChange={(e) => { setInput(e.target.value); setError(''); }}
             rows={3}
