@@ -72,7 +72,7 @@ function App() {
         setResult(res.data.message);
       }
     } catch (err) {
-      setError("Decryption failed. Ensure the keys and payload match.");
+      setError(mode === 'encrypt' ? "Encryption failed. Check backend connection." : "Decryption failed. Ensure the keys and payload match.");
       setTimeout(() => setError(''), 4000);
     }
     setLoading(false);
