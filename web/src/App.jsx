@@ -178,6 +178,12 @@ function App() {
           )}
         </button>
 
+        {loading && (
+          <p className="wake-up-msg">
+            Waking up secure enclave... This may take up to 40s.
+          </p>
+        )}
+
         {result && (
           <div className="result-container">
             <div className="result-header">
