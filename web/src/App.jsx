@@ -46,10 +46,11 @@ function App() {
   const handleProcess = async () => {
     if (!input) return;
 
-    // Sanitize input: Remove all spaces if we are in decrypt mode
+    // Sanitize input: Remove all spaces, tabs, and newlines if we are in decrypt mode
     let sanitizedInput = input;
     if (mode === 'decrypt') {
-      sanitizedInput = input.replace(/\s+/g, '');
+      sanitizedInput = input.trim().replace(/\s+/g, '');
+      setInput(sanitizedInput); // This will physically remove the spaces from your screen too
     }
 
     const err = validateInput(sanitizedInput);
