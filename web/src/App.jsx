@@ -46,7 +46,13 @@ function App() {
   const handleProcess = async () => {
     if (!input) return;
 
-    const err = validateInput(input);
+    // Sanitize input: Remove all spaces if we are in decrypt mode
+    let sanitizedInput = input;
+    if (mode === 'decrypt') {
+      sanitizedInput = input.replace(/\s+/g, '');
+    }
+
+    const err = validateInput(sanitizedInput);
     if (err) {
       setError(err);
       setTimeout(() => setError(''), 3000);
@@ -59,10 +65,10 @@ function App() {
 
     try {
       if (mode === 'encrypt') {
-        const res = await axios.post(`${API_BASE}/encrypt`, { message: input });
+        const res = await axios.post(`${API_BASE}/encrypt`, { message: sanitizedInput });
         setResult(res.data.payload);
       } else {
-        const res = await axios.post(`${API_BASE}/decrypt`, { payload: input });
+        const res = await axios.post(`${API_BASE}/decrypt`, { payload: sanitizedInput });
         setResult(res.data.message);
       }
     } catch (err) {
